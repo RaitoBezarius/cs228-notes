@@ -13,7 +13,7 @@ In order to define a probability on a set we need a few basic elements,
 
 **Probability measure**: A function $$P : F \rightarrow I\!R$$ that satisfies the following **properties** 
 * $$P(A) \geq 0$$, for all $$A \in F$$ 
-* If $$A_1$$, $$A_2$$, . . . are disjoint events $$(i.e., A_i ∩ A_j = ∅  \text{ whenever }  i \neq j)$$, then $$P(∪_iA_i) = \sum_i P(A_i)$$  
+* If $$A_1$$, $$A_2$$, . . . are disjoint events $$(i.e., A_i ∩ A_j = ∅  \text{ whenever }  i \neq j)$$, then $$P(∪\limits_iA_i) = \sum\limits_i P(A_i)$$  
 * $$P(\Omega) = 1$$.
 
 These three **properties** are called the **Axioms of Probability**.
@@ -25,7 +25,7 @@ These three **properties** are called the **Axioms of Probability**.
 - $$P(A \cap B) \leq min(P(A), P(B))$$.
 - **Union Bound** $$P(A \cup B) \leq  P(A) + P(B).$$
 - $$P(\Omega - A) = 1 − P(A).$$
-- **Law of Total Probability** If $$A_1, . . . , A_k$$ are a set of disjoint events such that $$\bigcup^k_{i=1} A_i = \Omega$$ then $$\sum^k_{i=1} P(A_k) = 1.$$
+- **Law of Total Probability** If $$A_1, . . . , A_k$$ are a set of disjoint events such that $$\bigcup\limits^k_{i=1} A_i = \Omega$$ then $$\sum\limits^k_{i=1} P(A_k) = 1.$$
 
 
 ## 1.1 Conditional probability and independence
@@ -45,7 +45,7 @@ tails. For example, we might have $$w_0 = \langle H, H, T, H, T, H, H, T, T, T \
 appear among our 10 tosses, or the length of the longest run of tails. These functions, under some
 technical conditions, are known as **random variables**.
 
-More formally, a random variable $$X$$ is a function $$X : \Omega \rightarrow I\!R$$. Typically, we will denote random
+More formally, a random variable $$X$$ is a function $$X : \Omega \rightarrow \mathbb{R}$$. Typically, we will denote random
 variables using upper case letters $$X(\omega)$$ or more simply $$X$$ (where the dependence on the random
 outcome $$\omega$$ is implied). We will denote the value that a random variable may take on using lower
 case letters $$x$$.
@@ -72,8 +72,8 @@ By using this function one can calculate the probability of any event.
 ### **Properties**:
 <!--Figure 1: A cumulative distribution function (CDF).-->
 - $$0 \leq  F_X(x) \leq  1$$.
-- $$lim_{x \rightarrow -\infty} F_X(x) = 0$$.
-- $$lim_{x \rightarrow \infty} F_X(x) = 1$$.
+- $$lim\limits_{x \rightarrow -\infty} F_X(x) = 0$$.
+- $$lim\limits_{x \rightarrow \infty} F_X(x) = 1$$.
 - $$x \leq y ⇒ F_X(x) \leq F_X(y)$$.
 
 
@@ -81,15 +81,15 @@ By using this function one can calculate the probability of any event.
 When a random variable X takes on a finite set of possible values (i.e., X is a discrete random
 variable), a simpler way to represent the probability measure associated with a random variable is
 to directly specify the probability of each value that the random variable can assume. In particular,
-a probability mass function (PMF) is a function $$pX : \Omega \rightarrow I\!R$$ such that 
+a probability mass function (PMF) is a function $$pX : \Omega \rightarrow \mathbb{R}$$ such that 
 $$p_X(x) = P(X = x)$$.
 
 In the case of discrete random variable, we use the notation Val(X) for the set of possible values that the random variable X may assume. For example, if X(ω) is a random variable indicating the number of heads out of ten tosses of coin, then V al(X) = {0, 1, 2, . . . , 10}.
 
 ### **Properties**:
 - $$0 \leq p_X(x) \leq 1$$.
-- $$\sum_{x \in Val(X)} p_X(x) = 1$$.
-- $$\sum_{x \in A} p_X(x) = P(X \in A)$$.
+- $$\sum\limits_{x \in Val(X)} p_X(x) = 1$$.
+- $$\sum\limits_{x \in A} p_X(x) = P(X \in A)$$.
 
 ## 2.3 Probability density functions
 For some continuous random variables, the cumulative distribution function FX(x) is differentiable everywhere. In these cases, we define the Probability Density Function or PDF as the derivative of the CDF, i.e.,
@@ -108,7 +108,7 @@ Both CDFs and PDFs (when they exist!) can be used for calculating the probabilit
 
 ### **Properties**:
 - $$f_X(x) \geq 0$$.
-- $$\int^{\infty}_{-\infty} f_X(x) = 1$$.
+- $$\int\limits^{\infty}_{-\infty} f_X(x) = 1$$.
 - $$\int_{x \in A} f_X(x) dx = P(X \in A)$$.
 
 
@@ -129,8 +129,8 @@ E[g(X)] = \int^{\infty}_{-\infty} g(x)f_X(x)dx
 Intuitively, the expectation of g(X) can be thought of as a “weighted average” of the values that g(x) can taken on for different values of x, where the weights are given by $$p_X(x)$$ or $$f_X(x)$$. As a special case of the above, note that the expectation, E[X] of a random variable itself is found by letting g(x) = x; this is also known as the mean of the random variable X.
 
 ### **Properties**:
-- $$E[a] = a$$ for any constant $$a \in I\!R$$.
-- $$E[af(X)] = aE[f(X)]$$ for any constant $$a \in I\!R$$.
+- $$E[a] = a$$ for any constant $$a \in \mathbb{R}$$.
+- $$E[af(X)] = aE[f(X)]$$ for any constant $$a \in \mathbb{R}$$.
 - (Linearity of Expectation) $$E[f(X) + g(X)] = E[f(X)] + E[g(X)]$$.
 - For a discrete random variable $$X$$, $$E[1\{X = k\}] = P(X = k)$$.
 
@@ -152,14 +152,14 @@ where the second equality follows from linearity of expectations and the fact th
 constant with respect to the outer expectation.
 
 ### **Properties**:
-- $$Var[a] = 0$$ for any constant $$a \in I\!R$$.
-- $$Var[af(X)] = a^2 Var[f(X)]$$ for any constant $$a \in I\!R$$.
+- $$Var[a] = 0$$ for any constant $$a \in \mathbb{R}$$.
+- $$Var[af(X)] = a^2 Var[f(X)]$$ for any constant $$a \in \mathbb{R}$$.
 
 **Example** Calculate the mean and the variance of the uniform random variable X with PDF $$f_X(x) = 1, ∀x  \in  [0, 1], 0$$ elsewhere.
 
-$$E[X] = \int^{\infty}_{-\infty} x f_x(x) dx = \int^1_0 x dx = \frac{1}{2}$$
+$$E[X] = \int\limits^{\infty}_{-\infty} x f_x(x) dx = \int^1_0 x dx = \frac{1}{2}$$
 
-$$E[X^2] = \int^{\infty}_{-\infty} x^2 f_X(x)dx = \int^1_0 x^2 dx = \frac{1}{3}$$
+$$E[X^2] = \int\limits^{\infty}_{-\infty} x^2 f_X(x)dx = \int^1_0 x^2 dx = \frac{1}{3}$$
 
 $$Var[X] = E[X^2] - E[X]^2 = \frac{1}{3} - \frac{1}{4} = \frac{1}{12}$$
 
@@ -172,9 +172,10 @@ E[g(X)] = \sum_{x \in Val(X)} 1\{x \in A\}P_X(x)dx = \sum_{x \in A} P_X(x)dx = P
 \end{equation}
 
 ### **Continuous case**:
-{% math %}
+
+\begin{equation}
 E[g(X)] = \int^{\infty}_{-\infty} 1\{x \in A\} f_X(x) dx = \int_{x\in A} f_X(x) dx = P(x \in A)
-{% endmath %}
+\end{equation}
 
 
 
@@ -237,16 +238,21 @@ Suppose that we have two random variables X and Y . One way to work with these t
 It can be shown that by knowing the joint cumulative distribution function, the probability of any event involving X and Y can be calculated.
 
 The joint CDF FXY (x, y) and the joint distribution functions FX(x) and FY (y) of each variable separately are related by
-\begin{equation}F_X(x) = lim_{y \rightarrow \infty} F_{XY} (x, y)dy\\
-F_Y(y) = lim_{x \rightarrow \infty} F_{XY} (x, y)dx
+\begin{equation}
+\left\{
+\begin{aligned}
+& F_X(x) = \lim_{y \rightarrow \infty} F_{XY} (x, y)dy \\
+& F_Y(y) = \lim_{x \rightarrow \infty} F_{XY} (x, y)dx
+\end{aligned}
+\right.
 \end{equation}
 Here, we call $$F_X(x)$$ and $$F_Y(y)$$ the **marginal cumulative distribution functions** of $$F_{XY} (x, y)$$.
 
 ### **Properties**:
 - $$0 \leq F_{XY} (x, y) \leq 1$$.
-- $$lim_{x,y\rightarrow \infty} F_{XY} (x, y) = 1$$.
-- $$lim_{x,y\rightarrow -\infty} F_{XY} (x, y) = 0$$.
-- $$F_X(x) = lim_{y \rightarrow \infty} F_{XY} (x, y)$$.
+- $$\lim\limits_{x,y\rightarrow \infty} F_{XY} (x, y) = 1$$.
+- $$\lim\limits_{x,y\rightarrow -\infty} F_{XY} (x, y) = 0$$.
+- $$F_X(x) = \lim\limits_{y \rightarrow \infty} F_{XY} (x, y)$$.
 
 ## 3.2 Joint and marginal probability mass functions
 
@@ -255,7 +261,7 @@ If X and Y are discrete random variables, then the joint probability mass functi
 p_{XY}(x, y) = P(X = x, Y = y).
 \end{equation}
 Here, $$0 \leq P_{XY}(x, y) \leq 1$$ for all $$x, y,$$ and 
-$$\sum_{x \in Val(X)} \sum_{y \in Val(Y)} P_{XY}(x, y) = 1$$.
+$$\sum\limits_{x \in Val(X)} \sum_\limits{y \in Val(Y)} P_{XY}(x, y) = 1$$.
 
 How does the joint PMF over two variables relate to the probability mass function for each variable
 separately? It turns out that
